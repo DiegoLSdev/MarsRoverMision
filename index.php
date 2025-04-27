@@ -128,7 +128,7 @@ class Rover
                         $this->y,
                         $this->direction,
                         true,
-                        null
+                        [$new_x, $new_y], // Forgot to also send the obstacle position.
                     ];
                 }
 
