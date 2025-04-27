@@ -27,3 +27,33 @@ class Rover :
 
         new_direction = DIRECTIONS[new_direction_index]
         self.direction = new_direction
+
+    def move_forward(self, obstacles:set, grid_size:int) -> bool:
+
+        # Each direction has to be assigned to a real vector.
+        vectors = {
+            'N': (0,1),  #  ↑
+            'E': (1,0),  #  →
+            'S': (0,-1), #  ↓
+            'W': (-1,0), #  ←
+        }
+
+        current_direction_key = self.direction # Store the actual direction of Rover
+        movement = vectors[current_direction_key] # Store the vector current direction
+
+        # Expected movement of each Axis
+        x = movement[0]
+        y = movement[1]
+
+        # New position after the move
+        new_x = self.x + x
+        new_y = self.y + y
+
+        # We could assing directly the new position to self.x and self.y but we have to check to things first
+        # Remember! : we've been told how expensive Rovers are. 
+
+        # Check if the new position move is going to be inside the grid limits
+        if not(0 <= new_x < grid_size) or not (0 < new_y < grid_size):
+            return False
+        # Check if there is an obstacle in the new position.
+        
