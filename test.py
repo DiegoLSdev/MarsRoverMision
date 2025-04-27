@@ -36,3 +36,13 @@ print(result)
 # Expected output
 # (1, 1, 'S', True, {(1,0)} )
 # Safe position X, Safe position Y, Final Direction, Aborted ?, Obstacles set
+
+print("Test 4 - Rover hits obstacle after several turns & moves")
+obstacles = {(5, 0)}
+r = Rover(1, 3, 'E')
+result = r.execute_collection_commands('FFRFFLFFRF', obstacles, 6)
+print(result)
+
+# Expected output
+# (5, 1, 'S', True, {(5, 0)})
+# Safe position X, Safe position Y, Final Direction, Aborted ?, Obstacles set
