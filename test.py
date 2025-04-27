@@ -16,6 +16,7 @@ print(r.direction) # Expected output : "E"
 r.turn_left()
 print(r.direction) # Expected output : "N"
 
+
 print("Test 2 - Move Rover outside the grid")
 obstacles = {}
 r = Rover(0,2,'N')
@@ -25,3 +26,13 @@ print(result)
 # Expected output
 # (0, 2, 'N', True, None)
 # Safe position X, Safe position Y, Final Direction, Aborted ?, Obstacles
+
+print("Test 3 - Move Rover against an obstacle")
+obstacles = {(1,0)}
+r = Rover(1,1,'S')
+result = r.execute_collection_commands('F',obstacles, 3)
+print(result)  
+
+# Expected output
+# (1, 1, 'S', True, {(1,0)} )
+# Safe position X, Safe position Y, Final Direction, Aborted ?, Obstacles set
