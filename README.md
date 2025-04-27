@@ -1,33 +1,30 @@
-# Mars Rover Mission
+Hello team, 
 
-## Your task
+I'd like to share with you my approach to the problem. On this page you'll find the steps I followed, my ideas and the desicions made to develop the solution.
 
-You’re part of the team that explores Mars by sending remotely controlled vehicles to the surface of the planet. Develop a software that translates the commands sent from earth to instructions that are understood by the rover.
+## Index
 
-- You are given the initial starting point (x,y) of a rover and the direction (N,S,E,W)
-it is facing.
+[Python script](https://github.com/DiegoLSdev/MarsRoverMision/blob/main/script.py)
 
-- The rover receives a collection of commands. (E.g.) FFRRFFFRL
-- The rover can move forward (f).
-- The rover can move left/right (l,r).
-- Suppose we are on a really weird planet that is square. 200x200 for example :)
-- Implement obstacle detection before each move to a new square. If a given
-sequence of commands encounters an obstacle, the rover moves up to the last
-possible point, aborts the sequence and reports the obstacle.
+[Python test](https://github.com/DiegoLSdev/MarsRoverMision/blob/main/test.php)
 
-## Take into account
+[PHP script](https://github.com/DiegoLSdev/MarsRoverMision/blob/main/index.php)
 
-- Rovers are expensive, make sure the software works as expected.
-
-<br>
-<br>
-<br>
-
-
+[PHP test](https://github.com/DiegoLSdev/MarsRoverMision/blob/main/test.php)
 
 ## Choosing a programming language
 
 I usually do Advent of Code and other algorithmic challengesm and I've always used Python, since it was the first language I learned along with Javascript, and I find it easier to apply to these kinds of problems, so first I'm going to implement the logic in Python.
+
+After  implemented a solution in Python,  which allowed me to focus on the problem and its alorithm logic. That's why you will see the logic construction made using Python.
+
+I have now made the solution using PHP, since its the primary language for the role. [Here is the PHP code](https://github.com/DiegoLSdev/MarsRoverMision/blob/main/index.php)
+
+You'll notice in that code that I've included links to the PHP documentation to highligh that I'm porting the logic from Python to PHP.
+
+I wouldn't normally includo so many comments, because clean code is important, but I chose to document the entire process I followed to complete the work.
+
+# LOGIC
 
 ## Planet
 
@@ -145,34 +142,3 @@ obstacle_position: It can be a tuple or a ```None``` value. That's why:
 - If aborted move by obstacle ->  the obstacle by ```tuple[int,int]```.
 - If aborted by grid limits -> ```None``` will be displayed instead.
 - If not aborted : Also will return ```None```.
-
-<br>
-<br>
-<br>
-<br>
-
-Before go on with the implementation of ```move_forward``` and ```execute_collection_commands``` I will use a ```test.py``` file to see if if ```turn_left()``` and ```turn_right()``` are perfoming as expected.
-
-Testing 1 Succeed ✅ 
-[Commit Link](https://github.com/DiegoLSdev/MarsRoverMision/commit/c3875fea1f94bb09b4dcf0f6f7eb0c6023bcc2b1)
-
-Now it's time to perform the tests for the execute_collection_commands().
-
-Testing 2 Succeed ✅ 
-[Commit Link](https://github.com/DiegoLSdev/MarsRoverMision/commit/47a97aacdaff1fcedb1f02b8aa35d99512c450bc)
-
-Testing 3 Succeed ✅ 
-[Commit Link](https://github.com/DiegoLSdev/MarsRoverMision/commit/131d4e1f66bfc827dd5bbd88955f1f329b554a19)
-
-Testing 4 Succeed ✅ 
-[Commit Link](https://github.com/DiegoLSdev/MarsRoverMision/commit/3f1a305a3a62f9d796401b7e4a837c7d27db3ad0)
-
-
-Testing 5 Succeed ✅ 
-[Commit Link](https://github.com/DiegoLSdev/MarsRoverMision/commit/60e75e0ebc5798f5e3b11f049daed04ea794500c)
-
-
-
-### Conclusion
-
-
