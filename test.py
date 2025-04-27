@@ -9,3 +9,9 @@ print(r.direction) # Expected output : "E"
 
 r.turn_right()
 print(r.direction) # Expected output : "S"
+
+r.turn_left()
+print(r.direction) # Expected output : "E"
+
+r.turn_left()
+print(r.direction) # Expected output : "N"
