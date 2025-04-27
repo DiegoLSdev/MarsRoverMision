@@ -56,4 +56,6 @@ class Rover :
         if not(0 <= new_x < grid_size) or not (0 < new_y < grid_size):
             return False
         # Check if there is an obstacle in the new position.
+        if (new_x, new_y) in obstacles : 
+            return False
         
