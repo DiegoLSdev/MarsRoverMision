@@ -4,13 +4,13 @@ I'd like to share with you my approach to the problem. On this page you'll find 
 
 ## Index
 
-[Python script](https://github.com/DiegoLSdev/MarsRoverMision/blob/main/script.py)
+🐍 [Python script](https://github.com/DiegoLSdev/MarsRoverMision/blob/main/script.py)
 
-[Python test](https://github.com/DiegoLSdev/MarsRoverMision/blob/main/test.php)
+🐍 [Python test](https://github.com/DiegoLSdev/MarsRoverMision/blob/main/test.php)
 
-[PHP script](https://github.com/DiegoLSdev/MarsRoverMision/blob/main/index.php)
+🐘 [PHP script](https://github.com/DiegoLSdev/MarsRoverMision/blob/main/index.php)
 
-[PHP test](https://github.com/DiegoLSdev/MarsRoverMision/blob/main/test.php)
+🐘 [PHP test](https://github.com/DiegoLSdev/MarsRoverMision/blob/main/test.php)
 
 ## Choosing a programming language
 
@@ -22,7 +22,7 @@ I have now made the solution using PHP, since its the primary language for the r
 
 You'll notice in that code that I've included links to the PHP documentation to highligh that I'm porting the logic from Python to PHP.
 
-I wouldn't normally includo so many comments, because clean code is important, but I chose to document the entire process I followed to complete the work.
+I wouldn't normally include so many comments, because clean code is important, but I chose to document the entire process I followed to complete the work.
 
 # LOGIC
 
