@@ -16,3 +16,14 @@ class Rover :
 
         new_direction = DIRECTIONS[new_direction_index]
         self.direction = new_direction
+
+    def turn_right(self):
+        current_direction_index = DIRECTIONS.index(self.direction)
+        new_direction_index = current_direction_index + 1 # +1 because turn is to right
+
+        # Logic to get new direction when index steps out the DIRECTIONS range
+        if new_direction_index >= len(DIRECTIONS) :
+            new_direction_index = 0 # new_direction_index = first position -> "N"
+
+        new_direction = DIRECTIONS[new_direction_index]
+        self.direction = new_direction
