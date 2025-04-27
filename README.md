@@ -27,11 +27,11 @@ possible point, aborts the sequence and reports the obstacle.
 
 ## Choosing a programming language
 
-I usually doAdvent of Code and other algorithmic challengesm and I've always used Python, since it was the first language I learned along with Javascript, and I find it easier to apply to these kinds of problems, so first I'm going to implement the logic in Python.
+I usually do Advent of Code and other algorithmic challengesm and I've always used Python, since it was the first language I learned along with Javascript, and I find it easier to apply to these kinds of problems, so first I'm going to implement the logic in Python.
 
 ## Planet
 
-Bidimensional grid, which size is N x N, in this case 200 x 200
+Bidimensional grid, which size is `200 × 200`
 this is how I imagine the planet:
 
 ![Planet](./public/Planet.png)
@@ -40,7 +40,7 @@ this is how I imagine the planet:
 
 I have think about this and the best option as far as I know is to create a class with attributes and methods.
 
-## Attributes
+### Attributes
 
 Rover is going to have an initial starting point (x,y)
 Rover also need a direction (N,S,E,W)
@@ -70,7 +70,7 @@ The given example it's not oging to allow this behaviour
 
 ![Directions modified](./public/Directions_wrong.png)
 
-## Methods
+### Methods
 
 Now it's time to think about the functions to turn left and right, but also to move forward. There is no need to move backwards because we can turn 2 times lef or right, and move forward.
 
@@ -156,5 +156,23 @@ Before go on with the implementation of ```move_forward``` and ```execute_collec
 Testing 1 Succeed ✅ 
 [Commit Link](https://github.com/DiegoLSdev/MarsRoverMision/commit/c3875fea1f94bb09b4dcf0f6f7eb0c6023bcc2b1)
 
+Now it's time to perform the tests for the execute_collection_commands().
+
 Testing 2 Succeed ✅ 
 [Commit Link](https://github.com/DiegoLSdev/MarsRoverMision/commit/47a97aacdaff1fcedb1f02b8aa35d99512c450bc)
+
+Testing 3 Succeed ✅ 
+[Commit Link](https://github.com/DiegoLSdev/MarsRoverMision/commit/131d4e1f66bfc827dd5bbd88955f1f329b554a19)
+
+Testing 4 Succeed ✅ 
+[Commit Link](https://github.com/DiegoLSdev/MarsRoverMision/commit/3f1a305a3a62f9d796401b7e4a837c7d27db3ad0)
+
+
+Testing 5 Succeed ✅ 
+[Commit Link](https://github.com/DiegoLSdev/MarsRoverMision/commit/60e75e0ebc5798f5e3b11f049daed04ea794500c)
+
+
+
+### Conclusion
+
+
