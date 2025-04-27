@@ -59,3 +59,8 @@ class Rover :
         if (new_x, new_y) in obstacles : 
             return False
         
+        # Movement action
+        self.x = new_x
+        self.y = new_y
+
+        return True        
