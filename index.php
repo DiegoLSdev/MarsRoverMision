@@ -33,6 +33,12 @@ class Rover
         $this->direction = self::DIRECTIONS[$new_index];
     }
     function turn_right() {
+        $current_index = array_search($this->direction, self::DIRECTIONS);
+        $new_index = $current_index + 1;
+        if ($new_index >= count(self::DIRECTIONS)) {
+            $new_index = 0;
+        }
+        $this->direction = self::DIRECTIONS[$new_index];
 
     }
 
