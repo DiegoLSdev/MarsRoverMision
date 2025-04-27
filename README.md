@@ -146,6 +146,9 @@ obstacle_position: It can be a tuple or a ```None``` value. That's why:
 - If aborted by grid limits -> ```None``` will be displayed instead.
 - If not aborted : Also will return ```None```.
 
+<br>
+<br>
+<br>
+<br>
 
-
-Before go on with the implementation of ```move_forward``` and ```execute_collection_commands``` I creating a ```test.py``` file to see if code is working at the moment.
+Before go on with the implementation of ```move_forward``` and ```execute_collection_commands``` I will use a ```test.py``` file to see if if ```turn_left()``` and ```turn_right()``` are perfoming as expected.
