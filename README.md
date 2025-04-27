@@ -153,5 +153,8 @@ obstacle_position: It can be a tuple or a ```None``` value. That's why:
 
 Before go on with the implementation of ```move_forward``` and ```execute_collection_commands``` I will use a ```test.py``` file to see if if ```turn_left()``` and ```turn_right()``` are perfoming as expected.
 
-Testing Succeed ✅ 
+Testing 1 Succeed ✅ 
 [Commit Link](https://github.com/DiegoLSdev/MarsRoverMision/commit/c3875fea1f94bb09b4dcf0f6f7eb0c6023bcc2b1)
+
+Testing 2 Succeed ✅ 
+[Commit Link](https://github.com/DiegoLSdev/MarsRoverMision/commit/47a97aacdaff1fcedb1f02b8aa35d99512c450bc)
