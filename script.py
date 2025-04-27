@@ -64,3 +64,38 @@ class Rover :
         self.y = new_y
 
         return True        
+    
+    def execute_collection_commands(self, commands:str, obstacles:set, grid_size:int ) -> tuple[int, int, str, bool, tuple[int, int] |  None]:
+        for command in commands : 
+            if command == 'L' :
+                self.turn_left()
+            elif command == 'R':
+                self.turn_right()
+            elif command == "F":
+
+                vectors = {
+                'N':(0,1),  #  ↑ 
+                'E':(1,0),  #  → 
+                'S':(0,-1), #  ↓ 
+                'W':(-1,0), #  ←
+                }
+
+                # Calculate the new step position without Rover move
+                x, y = vectors[self.direction]
+
+                # Target positions
+                tx,ty  = [self.x + x , self.y + y]
+                target_position = (x + self.x, y + self.y )
+
+                # If target is out of the grid, just abort and inform there is no path
+                if not (0 <= tx < grid_size) or not (0 <= ty < grid_size):
+                    return self.x, self.y, self.direction, True, None
+
+                # If the target position is an obstacle, abort and inform
+                if (target_position) in obstacles :
+                    return self.x, self.y, self.direction, True, target_position
+                
+                # In case there is a valid move,
+                self.move_forward(obstacles, grid_size)
+                
+        return self.x, self.y, self.direction, False, None
