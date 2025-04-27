@@ -145,3 +145,7 @@ obstacle_position: It can be a tuple or a ```None``` value. That's why:
 - If aborted move by obstacle ->  the obstacle by ```tuple[int,int]```.
 - If aborted by grid limits -> ```None``` will be displayed instead.
 - If not aborted : Also will return ```None```.
+
+
+
+Before go on with the implementation of ```move_forward``` and ```execute_collection_commands``` I creating a ```test.py``` file to see if code is working at the moment.
