@@ -2,20 +2,6 @@
 
 require_once __DIR__ . '/index.php';
 
-function dumpResult(array $r)
-{
-    // nicely format the tuple
-    echo "("
-        . $r[0] . ", "
-        . $r[1] . ", '"
-        . $r[2] . "', "
-        . ($r[3] ? 'True' : 'False') . ", "
-        . (is_array($r[4]) ? "['" . implode("','", $r[4]) . "']" : 'null')
-        . ")\n";
-}
-
-
-// ---- Test 1: Turn left & right ----
 echo "Test 1 - Turn left & Turn Right\n";
 $r = new Rover(0, 0, 'N');
 $r->turn_right();
