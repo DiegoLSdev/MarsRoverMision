@@ -1,9 +1,5 @@
 <?php
 
-
-
-
-
 # Declare Rover.php
 declare(strict_types=1);
 require_once 'Rover.php';
@@ -13,9 +9,6 @@ header("Access-Control-Allow-Origin: *");
 header("Access-Control-Allow-Methods: GET, POST, OPTIONS");
 header("Access-Control-Allow-Headers: Content-Type");
 header("Content-Type: application/json");
-
-
-# Jsoon file persist
 
 function load_state(): array {
     if (file_exists('reports.json')) {
@@ -29,13 +22,11 @@ function save_state(array $state): void {
 }
 
 # Read route and method
-
 $url = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
 $method = $_SERVER['REQUEST_METHOD'];
 
 # Conditional logic to act according the action (route)
 switch ("$method $url") {
-
     case 'POST /api/rover/start':
 
         # Get data
