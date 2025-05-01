@@ -1,4 +1,4 @@
-from script import Rover
+from testing.script import Rover
 
 print("Test 1 - Turn left & Turn Right")
 
