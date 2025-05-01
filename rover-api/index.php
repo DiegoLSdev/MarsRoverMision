@@ -34,7 +34,7 @@ switch ("$method $url") {
         $commands = json_decode(file_get_contents("php://input"),true);
         
         # Get the actual status (read the json file)
-        $status = json_decode(file_get_contents('rover_status.json'), true);
+        $status = json_decode(file_get_contents('reports.json'), true);
 
         # Pass the coordinates and direction to the class
         $rover = New Rover(
@@ -47,18 +47,18 @@ switch ("$method $url") {
         [$x, $y, $direction, $aborted, $obstacle] = 
         $rover -> execute_collection_commands(
             $payload['commands'],
-            $status[obstacles],
-            $status[gridSize]
+            $status['obstacles'],
+            $status['gridSize']
         );
 
         # If the collections of commands DID NOT ABORT, asign new coordinates and direction
-        if (!aborted) :
+        if (!$aborted) :
             $status['x'] = $x;
             $status['y'] = $y;
             $status['direction'] = $direction;
 
         # Save the new status in the json file
-            file_put_contents('rover_status.json', json_encode($status));
+            file_put_contents('reports.json', json_encode($status));
 
         # Prepare the response for the backend
         $response = [
@@ -67,14 +67,35 @@ switch ("$method $url") {
             'direction' => $direction,
             'aborted' => $aborted
         ];
-
+        endif;
         # If the collections of commands DID ABORT due to obstacle : Addnew coordinates of the obstacle
          if ($obstacle !== null) :
             $response['obstacle'] = $obstacle;
-        
+        endif;
         # Return the response to the backend
         echo json_encode($response);
         break;
     #  GET  -> api/rover/status
+    case 'GET /api/rover/status':
+        # Get the status from the json file
+        $status = json_decode(file_get_contents('reports.json'), true);
+        # Return the status to the backend
+        echo json_encode([
+            'x' => $status['x'] ?? null,
+            'y' => $status['y'] ?? null,
+            'direction' => $status['direction'] ?? null,
+        ]);
+        break;
+    
     #  POST -> api/rover/restart
+    case 'POST /api/rover/restart':
+        # Get the status from the json file
+        $status = json_decode(file_get_contents('reports.json'), true);
+        # Return the status to the backend
+        echo json_encode([
+            'x' => $status['x'] ?? null,
+            'y' => $status['y'] ?? null,
+            'direction' => $status['direction'] ?? null,
+        ]);
+        break;
 }
