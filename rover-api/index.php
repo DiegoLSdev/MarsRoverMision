@@ -52,6 +52,13 @@ switch ("$method $url") {
         # Get commands
         $commands = json_decode(file_get_contents("php://input"),true);
         
+        # Get the payload (commands)
+        $payload = [
+            'commands' => $commands['commands'],
+            'obstacles' => $commands['obstacles'],
+            'gridSize' => $commands['gridSize']
+        ];
+        
         # Get the actual status (read the json file)
         $status = json_decode(file_get_contents('reports.json'), true);
 
@@ -69,6 +76,7 @@ switch ("$method $url") {
             $status['obstacles'],
             $status['gridSize']
         );
+        # 
 
         # If the collections of commands DID NOT ABORT, asign new coordinates and direction
         if (!$aborted) :

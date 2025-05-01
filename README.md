@@ -197,5 +197,14 @@ First of all run the php file:
 
 
 
+## Api Rover execute commands 
 
+/api/rover/execute_commands
 
+### Thunder Client Test
+
+![alt text](./public/endpoints/api_execute_commands.png)
+
+### Json Result
+
+![alt text](./public/endpoints/api_execute_commands_json.png)
