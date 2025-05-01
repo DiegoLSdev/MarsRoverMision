@@ -12,6 +12,10 @@ I'd like to share with you my approach to the problem. On this page you'll find 
 
 🐘 [PHP test](https://github.com/DiegoLSdev/MarsRoverMision/blob/main/test.php)
 
+[API](##API)
+
+
+
 ## Choosing a programming language
 
 I usually do Advent of Code and other algorithmic challengesm and I've always used Python, since it was the first language I learned along with Javascript, and I find it easier to apply to these kinds of problems, so first I'm going to implement the logic in Python.
@@ -142,3 +146,35 @@ obstacle_position: It can be a tuple or a ```None``` value. That's why:
 - If aborted move by obstacle ->  the obstacle by ```tuple[int,int]```.
 - If aborted by grid limits -> ```None``` will be displayed instead.
 - If not aborted : Also will return ```None```.
+
+
+## API
+
+My plan is to create pure php api that receive JSON petitions and returns the Rover position (status)
+
+After that I'm going to create a front end using an SPA with Vue.js
+
+- Frontend will display the grid and locate rover with obstacles.
+- User will be able to send commands and parameters ( "FFRRLFRL" , Grid Size = 200, initial position = (50,32)...)
+- This command will call the API and execute the commands.
+
+### API Design
+
+- POST -> /api/rover/start
+- POST -> /api/rover/execute_commands
+- GET  -> /api/rover/status
+
+I would add another route that will reset the position, to be able to start again when the path is not valid.
+- POST -> /api/rover/reset
+
+My concern now is to keep track of the rover moves and I think I will keep it simple with logs inside json file.
+
+The new structure for the project will have two different php files. ![Folder structure using MD](https://dev.to/your-ehsan/how-to-easily-create-folder-structure-in-readme-markdown-with-two-simple-steps-3i42)
+
+```bash
+├─── rover-api
+│    └─── Rover.php (Rover Class)
+│    └─── index.php (Routes logic)
+│    └─── reports.json (Storage)
+```
+
