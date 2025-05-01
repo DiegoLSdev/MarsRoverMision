@@ -40,9 +40,9 @@ switch ("$method $url") {
         # Save the status in the json file
         save_state($state);
         # Return the status to the backend
-        echo.json_encode(['Success' => true]);
+        echo json_encode(['Success' => true]);
 
-        break
+        break;
 
     #  POST -> api/rover/execute_commands
     case 'POST /api/rover/execute_commands' : 
