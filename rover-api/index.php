@@ -25,10 +25,12 @@ $method = $_SERVER['REQUEST_METHOD'];
 
 # Conditional logic to act according the action (route)
 switch ("$method $url") {
-    #  POST -> api/rover/start
+
     case 'POST /api/rover/start':
+
         # Get data
         $data = json_decode(file_get_contents('php://input'),true); 
+
         # Get status
         $state =  [
             "x" => $data['x'],
@@ -37,14 +39,15 @@ switch ("$method $url") {
             "gridSize" => $data['gridSize'],
             "obstacles" => $data['obstacles'],
         ];
+
         # Save the status in the json file
         save_state($state);
+
         # Return the status to the backend
         echo json_encode(['Success' => true]);
 
         break;
 
-    #  POST -> api/rover/execute_commands
     case 'POST /api/rover/execute_commands' : 
         # Get commands
         $commands = json_decode(file_get_contents("php://input"),true);
@@ -91,22 +94,23 @@ switch ("$method $url") {
         # Return the response to the backend
         echo json_encode($response);
         break;
-    #  GET  -> api/rover/status
     case 'GET /api/rover/status':
         # Get the status from the json file
         $status = json_decode(file_get_contents('reports.json'), true);
+
         # Return the status to the backend
         echo json_encode([
             'x' => $status['x'] ?? null,
             'y' => $status['y'] ?? null,
             'direction' => $status['direction'] ?? null,
         ]);
+
         break;
     
-    #  POST -> api/rover/restart
     case 'POST /api/rover/restart':
         # Get the status from the json file
         $status = json_decode(file_get_contents('reports.json'), true);
+
         # Return the status to the backend
         echo json_encode([
             'x' => $status['x'] ?? null,
@@ -114,4 +118,4 @@ switch ("$method $url") {
             'direction' => $status['direction'] ?? null,
         ]);
         break;
-}
+} 
