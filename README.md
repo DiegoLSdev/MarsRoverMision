@@ -180,6 +180,22 @@ The new structure for the project will have two different php files. ![Folder st
 
 After the backend logic is set in [index.php](https://github.com/DiegoLSdev/MarsRoverMision/blob/main/rover-api/index.php), I will test the endpooints using Thunder Client.
 
+First of all run the php file:
+```php -S localhost:8000 -t rover-api```
+
+## Api Rover Start 
+
+/api/rover/start
+
+### Thunder Client Test
+
+![alt text](./public/endpoints/api_rover_start.png)
+
+### Json Result
+
+![alt text](./public/endpoints/api_rover_start_json.png)
+
+
 
 
 
