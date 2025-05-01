@@ -49,20 +49,21 @@ switch ("$method $url") {
         break;
 
     case 'POST /api/rover/execute_commands':
-            // Decodificamos una sola vez
+            # Get the commands 
             $data     = json_decode(file_get_contents('php://input'), true);
             $commands = $data['commands'] ?? '';
         
-            // Cargamos estado previo
+            # Get the status from the json file
             $status = load_state();
         
+            # Check if the status is empty
             $rover = new Rover(
                 $status['x'],
                 $status['y'],
                 $status['direction']
             );
         
-            // Ejecutamos lógica del rover
+            # Execute the commands
             [$x, $y, $direction, $aborted, $obstacle] =
                 $rover->execute_collection_commands(
                     $commands,
@@ -70,20 +71,21 @@ switch ("$method $url") {
                     $status['gridSize']
                 );
         
-            // Si no abortó, persistimos nuevo estado
+            # Update the status only if it didn't abort
             if (!$aborted) {
                 $status['x']         = $x;
                 $status['y']         = $y;
                 $status['direction'] = $direction;
                 save_state($status);
             }
-        
-            // Preparamos respuesta
-            $response = compact('x','y','direction','aborted');
+            
+            # Return the status to the backend
+            $response = compact('x','y','direction','aborted','obstacle');
             if ($obstacle !== null) {
                 $response['obstacle'] = $obstacle;
             }
-        
+
+            # Return the response to the backend
             echo json_encode($response);
             break;
         
