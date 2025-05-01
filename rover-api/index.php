@@ -7,6 +7,16 @@ require_once 'Rover.php';
 
 # Jsoon file persist
 
+function load_state(): array {
+    if (file_exists('reports.json')) {
+        return json_decode(file_get_contents('reports.json'), true);
+    }
+    return [];
+}
+
+function save_state(array $state): void {
+    file_put_contents('reports.json', json_encode($state));
+}
 
 # Read route and method
 
@@ -27,6 +37,12 @@ switch ("$method $url") {
             "gridSize" => $data['gridSize'],
             "obstacles" => $data['obstacles'],
         ];
+        # Save the status in the json file
+        save_state($state);
+        # Return the status to the backend
+        echo.json_encode(['Success' => true]);
+
+        break
 
     #  POST -> api/rover/execute_commands
     case 'POST /api/rover/execute_commands' : 
@@ -37,10 +53,10 @@ switch ("$method $url") {
         $status = json_decode(file_get_contents('reports.json'), true);
 
         # Pass the coordinates and direction to the class
-        $rover = New Rover(
+        $rover = new Rover(
             $status['x'],
             $status['y'],
-            $status['direction'],
+            $status['direction']
         );
 
         # Execute the commands and get the new coordinates and direction

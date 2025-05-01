@@ -165,7 +165,7 @@ After that I'm going to create a front end using an SPA with Vue.js
 - GET  -> /api/rover/status
 
 I would add another route that will reset the position, to be able to start again when the path is not valid.
-- POST -> /api/rover/reset
+- POST -> /api/rover/restart
 
 My concern now is to keep track of the rover moves and I think I will keep it simple with logs inside json file.
 
@@ -177,4 +177,9 @@ The new structure for the project will have two different php files. ![Folder st
 │    └─── index.php (Routes logic)
 │    └─── reports.json (Storage)
 ```
+
+After the backend logic is set in [index.php](https://github.com/DiegoLSdev/MarsRoverMision/blob/main/rover-api/index.php), I will test the endpooints using Thunder Client.
+
+
+
 
