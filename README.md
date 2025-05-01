@@ -183,28 +183,4 @@ After the backend logic is set in [index.php](https://github.com/DiegoLSdev/Mars
 First of all run the php file:
 ```php -S localhost:8000 -t rover-api```
 
-## Api Rover Start 
-
-/api/rover/start
-
-### Thunder Client Test
-
-![alt text](./public/endpoints/api_rover_start.png)
-
-### Json Result
-
-![alt text](./public/endpoints/api_rover_start_json.png)
-
-
-
-## Api Rover execute commands 
-
-/api/rover/execute_commands
-
-### Thunder Client Test
-
-![alt text](./public/endpoints/api_execute_commands.png)
-
-### Json Result
-
-![alt text](./public/endpoints/api_execute_commands_json.png)
+I've already tested all endpoints and will proceed with the graphic implementation
