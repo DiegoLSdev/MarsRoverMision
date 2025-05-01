@@ -31,6 +31,9 @@ switch ("$method $url") {
         # Get data
         $data = json_decode(file_get_contents('php://input'),true); 
 
+        # Load status
+        $status = load_state();
+
         # Get status
         $state =  [
             "x" => $data['x'],
@@ -40,6 +43,15 @@ switch ("$method $url") {
             "obstacles" => $data['obstacles'],
         ];
 
+        # Apend the log to the json file
+        $log = $status['log'] ?? [];
+        $log[] = [
+            'x' => $data['x'],
+            'y' => $data['y'],
+            'direction' => $data['direction'],
+            'gridSize' => $data['gridSize'],
+            'obstacles' => $data['obstacles'],
+        ];
         # Save the status in the json file
         save_state($state);
 
@@ -107,8 +119,17 @@ switch ("$method $url") {
         break;
     
     case 'POST /api/rover/restart':
-        # Get the status from the json file
+        # Get the data
         $status = [
+            'x' => 0,
+            'y' => 0,
+            'direction' => 'N',
+            'gridSize' => [200, 200],
+            'obstacles' => [],
+        ];
+        # Apend log to the json file
+        $log = $status['log'] ?? [];
+        $log[] = [
             'x' => 0,
             'y' => 0,
             'direction' => 'N',
