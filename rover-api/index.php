@@ -1,9 +1,19 @@
 <?php
 
-# Declare Rover.php
 
+
+
+
+# Declare Rover.php
 declare(strict_types=1);
 require_once 'Rover.php';
+
+# Set the header to allow CORS and JSON response
+header("Access-Control-Allow-Origin: *");
+header("Access-Control-Allow-Methods: GET, POST, OPTIONS");
+header("Access-Control-Allow-Headers: Content-Type");
+header("Content-Type: application/json");
+
 
 # Jsoon file persist
 
