@@ -183,4 +183,10 @@ After the backend logic is set in [index.php](https://github.com/DiegoLSdev/Mars
 First of all run the php file:
 ```php -S localhost:8000 -t rover-api```
 
-I've already tested all endpoints and will proceed with the graphic implementation
+![Then run the endpoint tests](./public/endpoints/thunder_client.png)
+
+Pending:
+- Show all the endpoint tests results
+- Implement Graphical solution using Vue.js
+
+
