@@ -52,11 +52,15 @@ switch ("$method $url") {
             # Get the commands 
             $data     = json_decode(file_get_contents('php://input'), true);
             $commands = $data['commands'] ?? '';
-        
-            # Get the status from the json file
+
+
+            # Check the json logs content (status)
             $status = load_state();
+
+            # Add the log to the json file
+            $log = $status['log'] ?? [];
         
-            # Check if the status is empty
+            # Check the rover status
             $rover = new Rover(
                 $status['x'],
                 $status['y'],
@@ -104,13 +108,16 @@ switch ("$method $url") {
     
     case 'POST /api/rover/restart':
         # Get the status from the json file
-        $status = json_decode(file_get_contents('reports.json'), true);
+        $status = [
+            'x' => 0,
+            'y' => 0,
+            'direction' => 'N',
+            'gridSize' => [200, 200],
+            'obstacles' => [],
+        ];
 
-        # Return the status to the backend
-        echo json_encode([
-            'x' => $status['x'] ?? null,
-            'y' => $status['y'] ?? null,
-            'direction' => $status['direction'] ?? null,
-        ]);
+        # Save the status in the json file
+        save_state($status);
+        echo json_encode(['Success' => true]);
         break;
 } 
