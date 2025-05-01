@@ -10,6 +10,8 @@ header("Access-Control-Allow-Methods: GET, POST, OPTIONS");
 header("Access-Control-Allow-Headers: Content-Type");
 header("Content-Type: application/json");
 
+
+# Load the current state function
 function load_state(): array {
     if (file_exists('reports.json')) {
         return json_decode(file_get_contents('reports.json'), true);
@@ -17,6 +19,7 @@ function load_state(): array {
     return [];
 }
 
+# Save the current state  function
 function save_state(array $state): void {
     file_put_contents('reports.json', json_encode($state));
 }
