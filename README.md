@@ -4,6 +4,12 @@ I'd like to share with you my approach to the problem. On this page you'll find 
 
 ## Index
 
+#### Choosing a programming language
+#### Logic
+#### API
+#### Graphic
+
+
 🐍 [Python script](https://github.com/DiegoLSdev/MarsRoverMision/blob/main/script.py)
 
 🐍 [Python test](https://github.com/DiegoLSdev/MarsRoverMision/blob/main/test.php)
@@ -12,11 +18,9 @@ I'd like to share with you my approach to the problem. On this page you'll find 
 
 🐘 [PHP test](https://github.com/DiegoLSdev/MarsRoverMision/blob/main/test.php)
 
-[API](##API)
 
 
-
-## Choosing a programming language
+# Choosing a programming language
 
 I usually do Advent of Code and other algorithmic challengesm and I've always used Python, since it was the first language I learned along with Javascript, and I find it easier to apply to these kinds of problems, so first I'm going to implement the logic in Python.
 
@@ -148,7 +152,7 @@ obstacle_position: It can be a tuple or a ```None``` value. That's why:
 - If not aborted : Also will return ```None```.
 
 
-## API
+# API
 
 My plan is to create pure php api that receive JSON petitions and returns the Rover position (status)
 
@@ -169,7 +173,7 @@ I would add another route that will reset the position, to be able to start agai
 
 My concern now is to keep track of the rover moves and I think I will keep it simple with logs inside json file.
 
-The new structure for the project will have two different php files. ![Folder structure using MD](https://dev.to/your-ehsan/how-to-easily-create-folder-structure-in-readme-markdown-with-two-simple-steps-3i42)
+The new structure for the project will have two different php files. 
 
 ```bash
 ├─── rover-api
@@ -185,8 +189,11 @@ First of all run the php file:
 
 ![Then run the endpoint tests](./public/endpoints/thunder_client.png)
 
-Pending:
-- Show all the endpoint tests results
-- Implement Graphical solution using Vue.js
 
+#### Endpoint /api/rover/start (POST)
+#### Endpoint /api/rover/status (GET)
+#### Endpoint /api/rover/execute_commands (POST)
+#### Endpoint /api/rover/restart (POST)
+
+# Graphic
 
