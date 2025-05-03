@@ -22,7 +22,6 @@ async function onExecuteCommands() {
         <label for="">Commands</label>
         <input v-model="commands" type="text" placeholder="Enter commands (e.g., FFLFFR)" />
         <button @click="onExecuteCommands"> Execute Commands</button>
-        {{ commands }}
     </div>
 
   </div>
