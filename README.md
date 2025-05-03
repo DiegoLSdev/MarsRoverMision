@@ -190,10 +190,90 @@ First of all run the php file:
 ![Then run the endpoint tests](./public/endpoints/thunder_client.png)
 
 
-#### Endpoint /api/rover/start (POST)
-#### Endpoint /api/rover/status (GET)
-#### Endpoint /api/rover/execute_commands (POST)
-#### Endpoint /api/rover/restart (POST)
+
+# 1 ) api/rover/start (POST)
+
+During testing, the initial point of rover is ``(0,3)`` and is facing ``South``.
+
+There is an obstacle in ``(0,1)``.
+
+![Rover](./public/endpoints/rover-start.png)
+
+### Url:
+```http://localhost:8000/api/rover/start```
+### JSON Body: 
+```json
+{
+  "x": 0,
+  "y": 3,
+  "direction": "S",
+  "gridSize": 6,
+  "obstacles": [[0,1]]
+}
+```
+### Response:
+```json
+{
+  "Success": true
+}
+```
+### Json (reports.json):
+```json
+{"x":0,"y":3,"direction":"S","gridSize":6,"obstacles":[[0,1]]}
+```
+
+
+# 2 ) api/rover/execute_commands (POST)
+
+If Rover walks forward 2 steps, everything should be fine, but if the movement is 3 steps forward. 
+
+Rover will stay in ``(0,2)``, still facing ``South``, report there is an obstacle ``True`` and its location ``(0,3)``
+
+![Rover](./public/endpoints/rover-execute-commands.png)
+
+### Url:
+```http://localhost:8000/api/rover/execute_commands```
+### JSON Body: 
+```json
+{
+  "commands": "FFF", // Three steps forward
+} 
+```
+### Response:
+```json
+{
+  "x": 0,
+  "y": 2,
+  "direction": "S",
+  "aborted": true,
+  "obstacle": [
+    0,
+    1
+  ]
+}
+```
+
+
+# 3 ) api/rover/status (GET)
+
+
+Lets be sure the rover is in a safe position, just before hitting an obstacle.
+
+### Url:
+```http://localhost:8000/api/rover/status```
+
+### Response:
+```json
+{
+  "x": 0,
+  "y": 2,
+  "direction": "S"
+}
+```
+
+
+# 3 ) api/rover/restart (POST)
+
 
 # Graphic
 
