@@ -24,6 +24,7 @@ async function onStartRover() {
     x.value = data.x;
     y.value = data.y;
     direction.value = data.direction;
+ 
     console.log('Rover started successfully:', data);
 
     // Let the user know below button

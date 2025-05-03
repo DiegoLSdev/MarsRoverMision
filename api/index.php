@@ -117,6 +117,8 @@ switch ("$method $url") {
             'x' => $status['x'] ?? null,
             'y' => $status['y'] ?? null,
             'direction' => $status['direction'] ?? null,
+            'gridSize' => $status['gridSize'] ?? null,
+            'obstacles' => $status['obstacles'] ?? null,
         ]);
 
         break;
