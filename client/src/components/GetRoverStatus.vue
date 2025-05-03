@@ -6,7 +6,7 @@ import { startRover, getRoverStatus } from '../api/rover';
 const x = ref(null);
 const y = ref(null);
 const direction = ref(null);
-const error = ref('');
+const statusData = ref(null);
 
 // Function for loading the rover status
 async function onLoadRoverStatus() {
@@ -15,14 +15,24 @@ async function onLoadRoverStatus() {
     x.value = data.x;
     y.value = data.y;
     direction.value = data.direction;
+    statusData.value = "";
+
+    console.log('Rover status successfully loaded:', data);
+
+    statusData.value = `
+    Rover started at: (${data.x},${data.y}) 
+    Direction : ${data.direction}`; 
+
   }catch (error) {
     error.value = 'Not able to load Rover Status';
     console.log('Error loading rover status:',error);
   }
+
+
 }
 
 // Render the obtained data into the template
-onMounted(onLoadRoverStatus);
+// onMounted(onLoadRoverStatus);
 
 </script>
 
@@ -33,8 +43,11 @@ onMounted(onLoadRoverStatus);
           Rover Status
     </button>
     <div class="text-sm text-gray-500">
-      <p>Rover is at: ({{ x }},{{ y }})</p>
-      <p>Direction: {{ direction }}</p>
+      <div v-if="statusData">
+        <p v-for="(line, index) in statusData.split('\n')" :key="index">
+          {{ line }}
+        </p>
+      </div>
     </div>
 
   </div>
