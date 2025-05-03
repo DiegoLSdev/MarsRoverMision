@@ -31,7 +31,7 @@ onMounted(onLoadRoverStatus);
     <button className="m-4 bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded" 
       @click="onLoadRoverStatus">
           Rover Status
-        </button>
+    </button>
     <div class="text-sm text-gray-500">
       <p>Rover is at: ({{ x }},{{ y }})</p>
       <p>Direction: {{ direction }}</p>
