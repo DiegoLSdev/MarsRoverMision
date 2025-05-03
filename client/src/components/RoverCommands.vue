@@ -4,8 +4,12 @@ import { executeCommands } from '../api/rover';
 
 const commands = ref(null);
 const inputErrorMessage = ref(null);
+const resultMessage = ref(null); // Let the user know if the commands were executed successfully
 
 async function onExecuteCommands() {
+
+  resultMessage.value = null; // Reset the result message 
+  
   try {
     const response = await executeCommands(commands.value);
     console.log('Commands executed successfully:', response);
@@ -32,7 +36,7 @@ function checkIfValidCommand(command) {
 </script>
 
 <template>
-  <div className="flex flex-col items-center m-4 justify-center">
+  <div className="flex flex-col items-center m-4">
     <button className="m-4 bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded" 
       @click="onExecuteCommands">
       Execute Commands
