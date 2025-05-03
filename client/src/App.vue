@@ -2,6 +2,7 @@
 import GetRoverStatus from './components/GetRoverStatus.vue'
 import StartRover from './components/startRover.vue'
 import RoverCommands from './components/RoverCommands.vue'
+import RestartRover from './components/RestartRover.vue'
 </script>
 
 <template>
@@ -11,6 +12,7 @@ import RoverCommands from './components/RoverCommands.vue'
       <StartRover />
       <GetRoverStatus />
       <RoverCommands />
+      <RestartRover />
     </div>
   </div>
 </template>

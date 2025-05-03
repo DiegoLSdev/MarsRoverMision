@@ -21,4 +21,13 @@ export async function executeCommands(commands) {
       });
     if (!res.ok) throw new Error(`Command execution failed: ${res.status}`);
     return res.json();
-  }
+}
+
+export async function restartRover() {
+  const res = await fetch(`http://localhost:8000/api/rover/restart`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+    });
+    if (!res.ok) throw new Error(`Restart request failed: ${res.status}`);
+    return res.json();
+}
