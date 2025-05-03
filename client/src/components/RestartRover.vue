@@ -15,26 +15,42 @@ const restartData = ref("");
 // Function for restart (and load the rover status again)
 async function onRestartRover() {
   try{
-  await restartRover();
-  const restartData = await getRoverStatus();
-  x.value = restartData.x;
-  y.value = restartData.y;
-  direction.value = restartData.direction;
-  gridSize.value = restartData.gridSize;
-  obstacles.value = restartData.obstacles;
+
+    await restartRover();
+
+    const data = await getRoverStatus();
+
+    x.value = data.x;
+    y.value = data.y;
+    direction.value = data.direction;
+    gridSize.value = data.gridSize;
+    obstacles.value = data.obstacles;
+  
   } catch (error) {
     errorData.value = error;
     console.log('Error restarting rover:', error);
   }
+
+  restartData.value = `
+    Rover returned at: (${x.value},${y.value}) 
+    Direction : ${direction.value}
+    Grid size: ${gridSize.value}`;
 }
 
 </script>
 <template>
-  <div className="border">
-    <h2>Rover Restart</h2>
+  <div className="flex flex-col items-center m-4">
+    <button className="m-4 bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded" 
+      @click="onRestartRover">
+      Restart Rover
+    </button>  
+
     <div>
-      <button @click="onRestartRover">Restart Rover</button>
-      {{ restartData }}
+      <p v-for="(line, idx) in restartData.split('\n')" 
+        :key="idx"
+        v-text="line.trim()"
+        class="text-sm text-gray-500">
+    </p>
     </div>
 
   </div>
