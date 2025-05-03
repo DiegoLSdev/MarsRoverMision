@@ -35,7 +35,7 @@ async function onStartRover() {
     // Let the user know below button
     errorData.value = `
     Rover started at: (${data.x},${data.y}) 
-    Facing : ${data.direction}
+    Direction : ${data.direction}
     Grid size: ${data.gridSize}
     Obstacles: ${data.obstacles.map(obstacle => `(${obstacle[0]},${obstacle[1]})`).join(', ')} `;
     

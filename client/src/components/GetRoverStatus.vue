@@ -27,12 +27,14 @@ onMounted(onLoadRoverStatus);
 </script>
 
 <template>
-  <div className="border">
-    <h2>Rover Status</h2>
-    <div>
-      <p>Rover position: ({{ x }},{{ y }})</p>
+  <div className="flex flex-col items-center m-4">
+    <button className="m-4 bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded" 
+      @click="onLoadRoverStatus">
+          Rover Status
+        </button>
+    <div class="text-sm text-gray-500">
+      <p>Rover is at: ({{ x }},{{ y }})</p>
       <p>Direction: {{ direction }}</p>
-      <button @click="onLoadRoverStatus">Reload Rover Status</button>
     </div>
 
   </div>
