@@ -1,18 +1,15 @@
 <script setup>
-import HelloWorld from './components/HelloWorld.vue'
+import GetRoverStatus from './components/GetRoverStatus.vue'
+import StartRover from './components/startRover.vue'
 </script>
 
 <template>
   <div>
+    <h1>MARS ROVER MISION</h1>
     <div>
-      <a href="https://vite.dev" target="_blank">
-        <img src="/vite.svg" class="logo" alt="Vite logo" />
-      </a>
-      <a href="https://vuejs.org/" target="_blank">
-        <img src="./assets/vue.svg" class="logo vue" alt="Vue logo" />
-      </a>
+      <StartRover />
+      <GetRoverStatus />
     </div>
-    <HelloWorld msg="Vite + Vue" />
   </div>
 </template>
 
