@@ -1,82 +1,13 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-  <meta charset="UTF-8" />
-  <title>Mi SPA Vue en un solo archivo</title>
-  <!-- Vue 3 -->
-  <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
-  <!-- Vue Router 4 (opcional) -->
-  <script src="https://unpkg.com/vue-router@4/dist/vue-router.global.js"></script>
-  <style>
-    body { font-family: sans-serif; margin: 0; padding: 20px; }
-    nav a { margin-right: 10px; }
-    nav a.router-link-exact-active { font-weight: bold; }
-  </style>
-</head>
-<body>
-  <!-- Punto de montaje de la app -->
-   <h1>ROVER MISION</h1>
-  <div id="app">
-    <nav>
-      <router-link to="/">Playground</router-link>
-      <router-link to="/about">About</router-link>
-    </nav>
-    <!-- Aquí renderiza cada componente según la ruta -->
-    <router-view></router-view>
-  </div>
-
-  <script>
-    const API_BASE = 'http://localhost:8000';  // URL de tu backend
-
-    // --- Componentes en línea ---
-    const Playground = {
-      template: `
-        <div>
-          <h1>Inicio</h1>
-          <button @click="loadData">Cargar datos del backend</button>
-          <pre v-if="data">{{ data }}</pre>
-        </div>
-
-        <div>
-          <h1>Inicio</h1>
-          <button @click="startRover">Start Rover</button>
-          <pre v-if="data">{{ data }}</pre>
-        </div>
-        
-        `,
-      data() { return { data: null } },
-      methods: {
-        async loadData() {
-          try {
-            const res = await fetch(API_BASE + '/api/rover/status');
-            this.data = await res.json();
-          } catch (err) {
-            console.error(err);
-            alert('Error comunicándose con el backend');
-          }
-        },
-      }
-    };
-
-    const About = {
-      template: `<div><h1>Acerca de</h1><p>SPA en un solo archivo con Vue 3</p></div>`
-    };
-
-    // --- Configuración de rutas ---
-    const routes = [
-      { path: '/', component: Playground },
-      { path: '/about', component: About },
-    ];
-
-    const router = VueRouter.createRouter({
-      history: VueRouter.createWebHistory(),
-      routes
-    });
-
-    // --- Crear y montar la app ---
-    const app = Vue.createApp({});
-    app.use(router);
-    app.mount('#app');
-  </script>
-</body>
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vite + Vue</title>
+  </head>
+  <body>
+    <div id="app"></div>
+    <script type="module" src="/src/main.js"></script>
+  </body>
 </html>

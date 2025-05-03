@@ -272,8 +272,53 @@ Lets be sure the rover is in a safe position, just before hitting an obstacle.
 ```
 
 
-# 3 ) api/rover/restart (POST)
+# 4 ) api/rover/restart (POST)
 
+### Url:
+```http://localhost:8000/api/rover/status```
 
-# Graphic
+### Response:
+```json
+{
+  "Success": true
+}
+```
+### Json (reports.json):
+``{"x":0,"y":0,"direction":"N","gridSize":[200,200],"obstacles":[]}``
 
+# Frontend
+
+I've just created a vue project using Vite, and relocate the folders
+
+```bash
+├─── marsrovermission
+│    └─── api (Backend)
+│    └─── client (Frontend)
+```
+### Change vite.config
+
+I'd like to be sure that we are going to be able to listen backend port at 8000.
+
+```js
+export default defineConfig({
+  plugins: [vue()],
+  proxy: {
+    '/api' : {
+      target : 'http://localhost:8000',
+    }
+  }
+})
+```
+
+### API Fetch
+
+```js
+export function startRover(payload) {
+  return fetch(`/api/rover/start`, {
+    method: 'POST',
+    headers: { 'Content-Type':'application/json' },
+    body: JSON.stringify(payload),
+  }).then(r => r.json())
+}
+```
+Will use same structure for the rest of the endpoint calls
