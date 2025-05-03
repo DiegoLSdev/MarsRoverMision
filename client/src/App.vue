@@ -8,7 +8,7 @@ import RestartRover from './components/RestartRover.vue'
 <template>
   <div>
     <h1>MARS ROVER MISION</h1>
-    <div>
+    <div className="border flex">
       <StartRover />
       <GetRoverStatus />
       <RoverCommands />

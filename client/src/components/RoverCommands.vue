@@ -16,7 +16,7 @@ async function onExecuteCommands() {
 </script>
 
 <template>
-  <div className="action">
+  <div className="border">
     <h2>Execute Commands</h2>
     <div>
         <label for="">Commands</label>

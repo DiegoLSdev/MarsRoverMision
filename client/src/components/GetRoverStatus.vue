@@ -27,7 +27,7 @@ onMounted(onLoadRoverStatus);
 </script>
 
 <template>
-  <div>
+  <div className="border">
     <h2>Rover Status</h2>
     <div>
       <p>Rover position: ({{ x }},{{ y }})</p>

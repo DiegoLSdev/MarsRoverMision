@@ -30,7 +30,7 @@ async function onRestartRover() {
 
 </script>
 <template>
-  <div className="action">
+  <div className="border">
     <h2>Rover Restart</h2>
     <div>
       <button @click="onRestartRover">Restart Rover</button>
