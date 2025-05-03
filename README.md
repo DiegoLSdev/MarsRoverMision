@@ -5,9 +5,13 @@ I'd like to share with you my approach to the problem. On this page you'll find 
 ## Index
 
 #### Choosing a programming language
+
 #### Logic
+
 #### API
+
 #### Graphic
+
 
 
 🐍 [Python script](https://github.com/DiegoLSdev/MarsRoverMision/blob/main/script.py)
