@@ -322,3 +322,8 @@ export function startRover(payload) {
 }
 ```
 Will use same structure for the rest of the endpoint calls
+
+At this point we are able to Start Rover uwing Frontend (also be informed of what happened after that action)
+We can also get the current status of the rover to be sure it is where we expected.
+User is able to add soome commands ``F,F,L,F`` in the input and rover will perform its actions.
+Left to add -> restart endpoint, add a board to render the grid in real time.
